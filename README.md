@@ -1,6 +1,40 @@
 # ME910-cheat-sheet
 Telit ME910 Cheat Sheet
 
+## Ubuntu 18.04
+
+If you want to send raw AT commands over uart make sure ModemManager isn't also talking to the module:
+```
+systemctl stop ModemManager
+```
+Monitor dmesg:
+```
+dmesg -w
+```
+Hold the power button and observe the module power up:
+```
+[602715.818079] option 1-3:1.0: GSM modem (1-port) converter detected
+[602715.818686] usb 1-3: GSM modem (1-port) converter now attached to ttyUSB0
+[602715.819420] option 1-3:1.1: GSM modem (1-port) converter detected
+[602715.819979] usb 1-3: GSM modem (1-port) converter now attached to ttyUSB1
+[602715.820757] option 1-3:1.2: GSM modem (1-port) converter detected
+[602715.821903] usb 1-3: GSM modem (1-port) converter now attached to ttyUSB2
+```
+Connect over minicom
+```
+sudo minicom -D /dev/ttyUSB1
+```
+minicom configuration:
+
+* CTRA-A, Z, P: 115200 8N1
+* CTRA-A, Z, O: Hardware Flow Control: No
+* CTRA-A, Z, O: Software Flow Control: No
+
+Check Comms:
+```
+AT                                                                                                                          
+OK
+```
 
 
 # Debugging
