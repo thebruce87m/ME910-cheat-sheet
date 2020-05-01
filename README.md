@@ -37,6 +37,20 @@ OK
 ```
 
 
+# Commands
+
+| Command     |  Info                                     |
+|-------------|-------------------------------------------|
+| AT+CGDCONT? |  Check APN details                        |
+| AT+CGAUTH?  | Check password                            |
+| AT+CREG=2   | Unsolicited Registration message          |
+| AT+CEREG=2  | Unsolicited Registration message (NB-IoT) |
+| AT+CGREG=2  | Unsolicited Registration message (2G)     |
+| AT+CREG?    | Check Current Registration                |
+| AT+CEREG?   | Check Current Registration (NB-IoT)       |
+| AT+CGREG?   | Check Current Registration (2G)           |
+
+
 # Debugging
 
 From here: [link](https://community.hologram.io/t/network-registration-denied-creg-0-3/2762/4)
@@ -49,3 +63,6 @@ AT+COPS=? <<will search for nearby networks, may take 1-3 minutes
 AT+CGDCONT? <<should print the configured PDP contexts, hologram should be in this list, may show an IP if given one by the carrier
 AT+CGACT? <<checks if PDP context is active
 ```
+
+
+
