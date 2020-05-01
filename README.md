@@ -39,17 +39,21 @@ OK
 
 # Commands
 
-| Command     |  Info                                     |
-|-------------|-------------------------------------------|
-| AT+CGDCONT? |  Check APN details                        |
-| AT+CGAUTH?  | Check password                            |
-| AT+CREG=2   | Unsolicited Registration message          |
-| AT+CEREG=2  | Unsolicited Registration message (NB-IoT) |
-| AT+CGREG=2  | Unsolicited Registration message (2G)     |
-| AT+CREG?    | Check Current Registration                |
-| AT+CEREG?   | Check Current Registration (NB-IoT)       |
-| AT+CGREG?   | Check Current Registration (2G)           |
-
+| Command     | Info                                      | Output                                  |
+|-------------|-------------------------------------------|-----------------------------------------|
+| ATZ         | Soft Reset                                |                                         |
+| ATI4        | Module Name                               | ME910C1-E2                              |
+| AT#QSS?     | Query SIM Status                          | #QSS: 0,1                               |
+| AT+CFUN?    | Query phone functionality                 |                                         |
+| AT+CGDCONT? |  Check APN details                        |                                         |
+| AT+CGAUTH?  | Check password                            |                                         |
+| AT+CREG=2   | Unsolicited Registration message          |                                         |
+| AT+CEREG=2  | Unsolicited Registration message (NB-IoT) |                                         |
+| AT+CGREG=2  | Unsolicited Registration message (2G)     |                                         |
+| AT+CREG?    | Check Current Registration                |                                         |
+| AT+CEREG?   | Check Current Registration (NB-IoT)       |                                         |
+| AT+CGREG?   | Check Current Registration (2G)           |                                         |
+| AT#PSNT?    | Packet Service Network Type               | 0=GPRS, 4=LTE, 5=Unknown/Not Registered |
 
 # Debugging
 
