@@ -70,3 +70,26 @@ AT+CGACT? <<checks if PDP context is active
 
 
 
+# Telit Examples
+
+From [ME910C1 Quick Start Guide](https://y1cj3stn5fbwhv73k0ipk1eg-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Telit_ME910C1_QuickStart_Guide_r1.pdf)
+
+## Full TCP script
+```
+AT+CFUN=1                                      // Full functionality 
+AT+COPS=2                                      // Disable networkj registration 
+AT+CGDCONT=1,"IP",”<APN>”                      // Set <cid>=1 with APN 
+AT+COPS=0                                      // Enable network registration with automatic selection 
+AT#SCFG=1,1,300,90,600,50                      // Socket Configuration (see AT command manual for the details of the command) 
+AT#SGACT=1,1                                   // Internal modem process (expect to receive: ERROR) 
+AT+CEREG?                                      // Check Network registration , 2 or 5 is the positive answer // for that. 
+AT#SGACT?                                      // Confirm Context activated
+AT+CGPADDR=1                                   // Read IP address 
+AT#SD=1,0,<Dest. Port>,<"IP address">,0,1234,1 // Open a TCP socket to remote server 
+AT#SSEND=1                                     // After that command you will recieve a prompt > and you          
+                                               // can send  the data just typing it and end them with Crtl^Z                                          
+                                               // Transmit the data and end the string with Crtl^Z to send it
+SRING: 1                                       // message sent 
+AT#SH=1                                        // Close the socket
+```
+
