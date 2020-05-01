@@ -69,6 +69,21 @@ AT+CGACT? <<checks if PDP context is active
 ```
 
 
+# Our Example
+
+```
+ATZ
+AT+CFUN=1                                      // Full functionality 
+AT+COPS=2                                      // Disable network registration 
+AT+CREG=2
+AT+CGREG=2
+AT+CEREG=2
+AT+CREG?
+AT+CGREG?
+AT+CEREG?
+AT+COPS=1,2,"23415",9
+```
+
 
 # Telit Examples
 
@@ -77,7 +92,7 @@ From [ME910C1 Quick Start Guide](https://y1cj3stn5fbwhv73k0ipk1eg-wpengine.netdn
 ## Full TCP script
 ```
 AT+CFUN=1                                      // Full functionality 
-AT+COPS=2                                      // Disable networkj registration 
+AT+COPS=2                                      // Disable network registration 
 AT+CGDCONT=1,"IP",”<APN>”                      // Set <cid>=1 with APN 
 AT+COPS=0                                      // Enable network registration with automatic selection 
 AT#SCFG=1,1,300,90,600,50                      // Socket Configuration (see AT command manual for the details of the command) 
