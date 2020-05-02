@@ -82,7 +82,7 @@ AT+CREG?                     // Make sure it's not registered already and not se
 AT+CGREG?                    // Make sure it's not registered already and not searching (2G)
 AT+CEREG?                    // Make sure it's not registered already and not searching (NB-IoT)
 AT+COPS=1,2,"23415",9        // NB-IoT Registration
-//AT+COPS=1,2,"23415",9      // 2G Registration
+//AT+COPS=1,2,"23415",0      // 2G Registration
 ```
 
 Example Output (2G)
