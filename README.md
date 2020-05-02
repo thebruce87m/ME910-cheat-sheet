@@ -73,15 +73,63 @@ AT+CGACT? <<checks if PDP context is active
 
 ```
 ATZ
-AT+CFUN=1                                      // Full functionality 
-AT+COPS=2                                      // Disable network registration 
+AT+CFUN=1                    // Full functionality 
+AT+COPS=2                    // Disable network registration 
 AT+CREG=2
 AT+CGREG=2
 AT+CEREG=2
+AT+CREG?                     // Make sure it's not registered already and not searching
+AT+CGREG?                    // Make sure it's not registered already and not searching (2G)
+AT+CEREG?                    // Make sure it's not registered already and not searching (NB-IoT)
+AT+COPS=1,2,"23415",9        // NB-IoT Registration
+//AT+COPS=1,2,"23415",9      // 2G Registration
+```
+
+Example Output (2G)
+```
+ATZ
+OK
+ATZ
+OK
+AT+COPS=2
+OK
+AT+CFUN=1
+OK                                                                                                        
+AT+CREG=2                                                                                                 
+OK                                                                                                        
+AT+CGREG=2                                                                                                
+OK                                                                                                        
+AT+CEREG=2
+OK
 AT+CREG?
++CREG: 2,0
+
+OK
+AT+COPS=1,2,"23415",0
+OK
+
++CREG: 1,"03CE","C4EE",0
+
++CGREG: 2
+
++CGREG: 1,"03CE","C4EE",0,
+
+// Manual Queries
+
+AT+CREG?
++CREG: 2,1,"03CE","C4EE",0
+
+OK
+
 AT+CGREG?
++CGREG: 2,1,"03CE","C4EE",0,"01"
+
+OK
+
 AT+CEREG?
-AT+COPS=1,2,"23415",9
++CEREG: 2,0
+
+OK
 ```
 
 
